@@ -7,28 +7,12 @@ import { cn } from '@/lib/cn'
 import Button from '@/components/ui/Button'
 import { useDateStore } from '@/store/date'
 
-export interface Event {
-  id: string
-  title: string
-  content?: string
-  startDate: string
-  endDate: string
-}
-
-interface CalendarProps {
-  events?: Event[]
-}
-
 export default function Calendar({
-  events = [],
   className,
   ...htmlProps
-}: CalendarProps & HTMLAttributes<HTMLDivElement>) {
+}: HTMLAttributes<HTMLDivElement>) {
   const { date: selectDate, setDate } = useDateStore()
-  const { year, month, weeks, goToNextMonth, goToPrevMonth } =
-    useCalendar(events)
-
-  console.log(selectDate)
+  const { year, month, weeks, goToNextMonth, goToPrevMonth } = useCalendar()
 
   const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토']
   const today = dayjs()

@@ -1,27 +1,37 @@
-'use client'
-
-import { useDateStore } from '@/store/date'
-import Button from '@/components/ui/Button'
-import Link from 'next/link'
 import EventItem from '@/app/(home)/calendar/_components/EventItem'
+import { useEvent } from '@/app/(home)/calendar/_hooks/useEvent'
+import dayjs from 'dayjs'
+import isBetween from 'dayjs/plugin/isBetween'
 
-export default function EventList() {
-  const date = useDateStore.use.date()
+dayjs.extend(isBetween)
+
+interface EventItemContainerProps {
+  date: string
+}
+
+export default function EventList({ date }: EventItemContainerProps) {
+  const month = String(dayjs(date).month() + 1)
+
+  const { data } = useEvent(month)
+
+  const filteredEvents = data?.filter((event) => {
+    const targetDate = dayjs(date)
+    const startDate = dayjs(event.startDate)
+    const endDate = dayjs(event.endDate)
+
+    return targetDate.isBetween(startDate, endDate, 'day', '[]')
+  })
 
   return (
-    <div className="flex-1 min-h-60 p-4 bg-white border rounded shadow">
-      {date && (
-        <>
-          <div className="flex items-center justify-between">
-            <h2 className="font-bold text-lg">{date}</h2>
-            <Button asChild>
-              <Link href={'/add-event'}>이벤트 추가</Link>
-            </Button>
-          </div>
-          <div className="flex flex-col gap-3 py-5">
-            <EventItem />
-          </div>
-        </>
+    <div className="flex flex-col gap-3 py-5">
+      {filteredEvents && filteredEvents.length > 0 ? (
+        filteredEvents.map((event) => (
+          <EventItem key={event.id} event={event} />
+        ))
+      ) : (
+        <div className="flex justify-center items-center h-56">
+          <p className="text-gray-500">해당 날짜에 이벤트가 없습니다.</p>
+        </div>
       )}
     </div>
   )

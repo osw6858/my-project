@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff0f10c-3643-4de3-807a-7fa42adfcdde" name="변경" comment="feat: 달력 컴포넌트 추가" />
+    <list default="true" id="fff0f10c-3643-4de3-807a-7fa42adfcdde" name="변경" comment="chore: prettier 설치 및 설정 파일 추가">
+      <change afterPath="$PROJECT_DIR$/src/app/(home)/calendar/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(home)/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/Footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/page.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +50,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/calendar",
     "last_opened_file_path": "/Users/osin-ung/project/assignment",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -55,7 +63,7 @@
     "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "/Users/osin-ung/project/assignment/node_modules/prettier",
     "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "settings.editor.selected.configurable": "actions.on.save",
     "ts.external.directory.path": "/Users/osin-ung/project/assignment/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -65,11 +73,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/(home)" />
+      <recent name="$PROJECT_DIR$/src/app/(calendar)" />
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/(home)/calender" />
       <recent name="$PROJECT_DIR$/src/app/(calendar)/calender" />
-      <recent name="$PROJECT_DIR$/src/app/home" />
-      <recent name="$PROJECT_DIR$/src/app/(calendar)" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -89,7 +97,7 @@
       <updated>1734514041614</updated>
       <workItem from="1734514042696" duration="6234000" />
       <workItem from="1734520700334" duration="5734000" />
-      <workItem from="1734526721936" duration="9191000" />
+      <workItem from="1734526721936" duration="10714000" />
     </task>
     <task id="LOCAL-00001" summary="chore: 프리티어 파일 추가">
       <option name="closed" value="true" />
@@ -171,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734572407088</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="chore: prettier 설치 및 설정 파일 추가">
+      <option name="closed" value="true" />
+      <created>1734572639568</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734572639568</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +214,7 @@
     <MESSAGE value="chore: react-big-calendar 타입 선언 파일 설치" />
     <MESSAGE value="design: 기본 컴포넌트 추가" />
     <MESSAGE value="feat: 달력 컴포넌트 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 달력 컴포넌트 추가" />
+    <MESSAGE value="chore: prettier 설치 및 설정 파일 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: prettier 설치 및 설정 파일 추가" />
   </component>
 </project>

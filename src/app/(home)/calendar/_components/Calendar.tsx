@@ -1,10 +1,11 @@
 'use client'
 
-import React, { HTMLAttributes, useState } from 'react'
+import React, { HTMLAttributes } from 'react'
 import dayjs from 'dayjs'
 import { useCalendar } from '@/app/(home)/calendar/_hooks/useCalendar'
 import { cn } from '@/lib/cn'
 import Button from '@/components/ui/Button'
+import { useDateStore } from '@/store/date'
 
 export interface Event {
   id: string
@@ -23,15 +24,18 @@ export default function Calendar({
   className,
   ...htmlProps
 }: CalendarProps & HTMLAttributes<HTMLDivElement>) {
-  const [selectedDate, setSelectedDate] = useState<dayjs.Dayjs | null>(null)
+  const { date: selectDate, setDate } = useDateStore()
   const { year, month, weeks, goToNextMonth, goToPrevMonth } =
     useCalendar(events)
+
+  console.log(selectDate)
 
   const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토']
   const today = dayjs()
 
   const handleClick = (date: dayjs.Dayjs) => {
-    setSelectedDate(date)
+    const formatDate = date.format('YYYY-MM-DD')
+    setDate(formatDate)
     console.log(date.format('YYYY-MM-DD'))
   }
 
@@ -87,7 +91,7 @@ export default function Calendar({
                     currentMonth ? 'text-black' : 'text-gray-400',
                     isToday && 'text-blue-500 font-bold',
                     isSunday && currentMonth && 'text-red-500',
-                    selectedDate?.isSame(date, 'day') && 'bg-gray-50',
+                    dayjs(selectDate)?.isSame(date, 'day') && 'bg-gray-50',
                   )}
                 >
                   <div>{date.date()}</div>

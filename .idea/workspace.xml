@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fff0f10c-3643-4de3-807a-7fa42adfcdde" name="변경" comment="feat: 달력 컴포넌트 추가" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2qNrnaRMO38Dp000KVGdC6tfyiB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/osin-ung/project/assignment",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/osin-ung/project/assignment/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/osin-ung/project/assignment/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app" />
+      <recent name="$PROJECT_DIR$/src/app/(home)/calender" />
+      <recent name="$PROJECT_DIR$/src/app/(calendar)/calender" />
+      <recent name="$PROJECT_DIR$/src/app/home" />
+      <recent name="$PROJECT_DIR$/src/app/(calendar)" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-2e7d6887c066-JavaScript-WS-241.15989.47" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="fff0f10c-3643-4de3-807a-7fa42adfcdde" name="변경" comment="" />
+      <created>1734514041614</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734514041614</updated>
+      <workItem from="1734514042696" duration="6234000" />
+      <workItem from="1734520700334" duration="5734000" />
+      <workItem from="1734526721936" duration="9191000" />
+    </task>
+    <task id="LOCAL-00001" summary="chore: 프리티어 파일 추가">
+      <option name="closed" value="true" />
+      <created>1734514432966</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734514432966</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chore: 프리티어 설치">
+      <option name="closed" value="true" />
+      <created>1734514743882</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734514743882</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chore: eslint-config-prettier 라이브러리 추가 및 ESLint 확장 설정">
+      <option name="closed" value="true" />
+      <created>1734515405620</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734515405620</updated>
+    </task>
+    <task id="LOCAL-00004" summary="chore: eslint-config-prettier 라이브러리 추가 및 ESLint 확장 설정">
+      <option name="closed" value="true" />
+      <created>1734515411645</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734515411645</updated>
+    </task>
+    <task id="LOCAL-00005" summary="chore: 캘린더 구현을 위한 react-big-calendar 라이브러리 설치">
+      <option name="closed" value="true" />
+      <created>1734520348197</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734520348197</updated>
+    </task>
+    <task id="LOCAL-00006" summary="chore: Localizer를 위한 dayjs 라이브러리 설치">
+      <option name="closed" value="true" />
+      <created>1734520601014</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734520601014</updated>
+    </task>
+    <task id="LOCAL-00007" summary="chore: react-big-calendar 타입 선언 파일 설치">
+      <option name="closed" value="true" />
+      <created>1734520806234</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734520806234</updated>
+    </task>
+    <task id="LOCAL-00008" summary="chore: react-big-calendar 타입 선언 파일 설치">
+      <option name="closed" value="true" />
+      <created>1734521397301</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734521397301</updated>
+    </task>
+    <task id="LOCAL-00009" summary="design: 기본 컴포넌트 추가">
+      <option name="closed" value="true" />
+      <created>1734526639292</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734526639292</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: 달력 컴포넌트 추가">
+      <option name="closed" value="true" />
+      <created>1734572407088</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734572407088</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: 프리티어 파일 추가" />
+    <MESSAGE value="chore: 프리티어 설치" />
+    <MESSAGE value="chore: eslint-config-prettier 라이브러리 추가 및 ESLint 확장 설정" />
+    <MESSAGE value="chore: 캘린더 구현을 위한 react-big-calendar 라이브러리 설치" />
+    <MESSAGE value="chore: Localizer를 위한 dayjs 라이브러리 설치" />
+    <MESSAGE value="design: 기본설정 globals.css 초기화" />
+    <MESSAGE value="chore: react-big-calendar 타입 선언 파일 설치" />
+    <MESSAGE value="design: 기본 컴포넌트 추가" />
+    <MESSAGE value="feat: 달력 컴포넌트 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 달력 컴포넌트 추가" />
+  </component>
+</project>

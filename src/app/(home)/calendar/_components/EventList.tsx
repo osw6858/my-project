@@ -2,6 +2,8 @@ import EventItem from '@/app/(home)/calendar/_components/EventItem'
 import { useEvent } from '@/app/(home)/calendar/_hooks/useEvent'
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
+import { HTMLAttributes } from 'react'
+import { cn } from '@/lib/cn'
 
 dayjs.extend(isBetween)
 
@@ -9,7 +11,11 @@ interface EventItemContainerProps {
   date: string
 }
 
-export default function EventList({ date }: EventItemContainerProps) {
+export default function EventList({
+  date,
+  className,
+  ...htmlProps
+}: EventItemContainerProps & HTMLAttributes<HTMLDivElement>) {
   const month = String(dayjs(date).month() + 1)
 
   const { data } = useEvent(month)
@@ -23,7 +29,7 @@ export default function EventList({ date }: EventItemContainerProps) {
   })
 
   return (
-    <div className="flex flex-col gap-3 py-5">
+    <div {...htmlProps} className={cn('flex flex-col gap-3 py-5', className)}>
       {filteredEvents && filteredEvents.length > 0 ? (
         filteredEvents.map((event) => (
           <EventItem key={event.id} event={event} />

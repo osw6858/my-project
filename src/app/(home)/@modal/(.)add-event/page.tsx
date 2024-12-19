@@ -1,4 +1,4 @@
-import AddEventPage from '@/app/(home)/add-enent/page'
+import AddEventPage from '@/app/(home)/add-event/page'
 
 export default function AddEventInterceptPage() {
   return <AddEventPage />

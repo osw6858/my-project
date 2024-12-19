@@ -26,6 +26,7 @@
     "@eslint/eslintrc": "^3",
     "@mswjs/http-middleware": "^0.10.2",
     "@tanstack/eslint-plugin-query": "^5.62.1",
+    "@tanstack/react-query-devtools": "^5.62.8",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^20",

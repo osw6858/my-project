@@ -5,30 +5,43 @@ import Input from '@/components/ui/Input'
 import TextArea from '@/components/ui/TextArea'
 import Button from '@/components/ui/Button'
 import { useRouter } from 'next/navigation'
-import { useDateStore } from '@/store/date'
 import { useAddEvent } from '@/app/(home)/calendar/_hooks/useAddEvent'
-import { FormEvent, useState } from 'react'
+import { FormEvent } from 'react'
+import { useEventForm } from '@/app/(home)/calendar/_hooks/useEventForm'
+import { validateEvent } from '@/util/validate'
 
 export default function AddEventPage() {
-  const [title, setTitle] = useState<string>('')
-  const [content, setContent] = useState<string>('')
-  const [startDate, setStartDate] = useState<string>(useDateStore.use.date())
-  const [endDate, setEndDate] = useState<string>(useDateStore.use.date())
+  const {
+    title,
+    setTitle,
+    content,
+    setContent,
+    startDate,
+    setStartDate,
+    endDate,
+    setEndDate,
+  } = useEventForm()
 
   const router = useRouter()
   const { mutate } = useAddEvent()
 
   const onEventSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!title || !startDate || !endDate) {
+    const event = { title, content, startDate, endDate }
+
+    const { result, message } = validateEvent(event)
+
+    if (!result) {
+      alert(message)
       return
     }
+
     mutate({ title, content, startDate, endDate })
     router.back()
   }
 
   return (
-    <Modal className="p-3 pt-8">
+    <Modal className="py-5 px-3">
       <form onSubmit={onEventSubmit}>
         <div className="flex gap-3 mb-3">
           <Input

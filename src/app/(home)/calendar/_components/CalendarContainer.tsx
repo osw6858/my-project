@@ -8,8 +8,11 @@ export default function CalendarContainer({
   ...htmlProps
 }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div {...htmlProps} className={cn('flex-1', className)}>
-      <div className="flex flex-col lg:flex-row pt-5 gap-2">
+    <div
+      {...htmlProps}
+      className={cn('flex-1 flex items-center justify-center mb-2', className)}
+    >
+      <div className="flex-1 flex flex-col lg:flex-row pt-5 gap-2 px-2">
         <Calendar className="flex-1" />
         <EventContainer />
       </div>

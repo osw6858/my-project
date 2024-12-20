@@ -3,7 +3,7 @@ import { DB } from '@/mock/db/event'
 import { END_POINT } from '@/constant/endPoint'
 import dayjs from 'dayjs'
 import { v4 as uuidv4 } from 'uuid'
-import { Event } from '@/schemas/event' // 고유 ID 생성을 위해 추가
+import { Event, EventWithoutId } from '@/schemas/event' // 고유 ID 생성을 위해 추가
 
 export const handlers = [
   http.get(END_POINT.event, ({ request }) => {
@@ -33,7 +33,7 @@ export const handlers = [
 
   http.post(END_POINT.event, async ({ request }) => {
     try {
-      const newEvent = (await request.json()) as Omit<Event, 'id'>
+      const newEvent = (await request.json()) as EventWithoutId
 
       if (!newEvent.title || !newEvent.startDate || !newEvent.endDate) {
         return HttpResponse.json(
@@ -61,5 +61,52 @@ export const handlers = [
         { status: 500 },
       )
     }
+  }),
+
+  http.delete(`${END_POINT.event}/:id`, ({ params }) => {
+    const { id } = params
+
+    const eventIndex = DB.event.findIndex((event) => event.id === id)
+
+    if (eventIndex === -1) {
+      return HttpResponse.json(
+        { error: '해당 ID의 이벤트를 찾을 수 없습니다.' },
+        { status: 404 },
+      )
+    }
+
+    DB.event.splice(eventIndex, 1)
+
+    return HttpResponse.json(
+      { message: '이벤트가 성공적으로 삭제되었습니다.' },
+      { status: 200 },
+    )
+  }),
+
+  http.patch(`${END_POINT.event}/:id`, async ({ params, request }) => {
+    const { id } = params
+    const updatedEvent = (await request.json()) as Event
+
+    const eventIndex = DB.event.findIndex((event) => event.id === id)
+
+    if (eventIndex === -1) {
+      return HttpResponse.json(
+        { error: '해당 ID의 이벤트를 찾을 수 없습니다.' },
+        { status: 404 },
+      )
+    }
+
+    DB.event[eventIndex] = {
+      ...DB.event[eventIndex],
+      ...updatedEvent,
+    }
+
+    return HttpResponse.json(
+      {
+        message: '이벤트가 성공적으로 수정되었습니다.',
+        event: DB.event[eventIndex],
+      },
+      { status: 200 },
+    )
   }),
 ]

@@ -1,17 +1,24 @@
 import { fetchApi } from '@/api/axios/axiosInstance'
 import { END_POINT } from '@/constant/endPoint'
-import { Event } from '@/schemas/event'
+import { EventWithoutId, eventWithoutIdSchema } from '@/schemas/event'
 import { AxiosError } from 'axios'
 
-export const addEvent = async (event: Omit<Event, 'id'>) => {
+export const addEvent = async (event: EventWithoutId) => {
   try {
-    const res = await fetchApi.post(END_POINT.event, event)
+    const { error } = eventWithoutIdSchema.safeParse(event)
 
-    const result = res.data
+    if (error) {
+      return {
+        status: 'error',
+        error: `올바르지 않은 요청 값입니다: ${error}`,
+      }
+    }
+
+    const { data } = await fetchApi.post(END_POINT.event, event)
 
     return {
       status: 'success',
-      data: result,
+      data,
     }
   } catch (error) {
     if (error instanceof AxiosError) {

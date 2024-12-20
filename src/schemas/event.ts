@@ -12,7 +12,9 @@ export const eventSchema = z.object({
   }),
 })
 
+export const eventWithoutIdSchema = eventSchema.omit({ id: true })
 export const eventsListSchema = z.array(eventSchema)
 
 export type EventsList = z.infer<typeof eventsListSchema>
 export type Event = z.infer<typeof eventSchema>
+export type EventWithoutId = z.infer<typeof eventWithoutIdSchema>

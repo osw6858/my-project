@@ -1,13 +1,13 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addEvent } from '@/api/event/addEvent'
-import { Event } from '@/schemas/event'
+import { EventWithoutId } from '@/schemas/event'
 import { QUERY_KEY } from '@/constant/queryKey'
 
 export const useAddEvent = () => {
   const client = useQueryClient()
 
   return useMutation({
-    mutationFn: async (event: Omit<Event, 'id'>) => {
+    mutationFn: async (event: EventWithoutId) => {
       const res = await addEvent(event)
       if (res.status === 'error') {
         throw new Error(res.error)

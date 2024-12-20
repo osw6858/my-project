@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
 import { useEvent } from '@/app/(home)/calendar/_hooks/useEvent'
 import { EventsList } from '@/schemas/event'
+import { useDateStore } from '@/store/date'
 
 dayjs.extend(isBetween)
 
@@ -13,8 +14,12 @@ interface Day {
 }
 
 export function useCalendar() {
-  const [year, setYear] = useState(dayjs().year())
-  const [month, setMonth] = useState(dayjs().month() + 1)
+  const date = useDateStore.use.date()
+  const existingYear = dayjs(date).year()
+  const existingMonth = dayjs(date).month() + 1
+
+  const [year, setYear] = useState(existingYear || dayjs().year())
+  const [month, setMonth] = useState(existingMonth || dayjs().month() + 1)
 
   const { data: events } = useEvent(String(month))
 

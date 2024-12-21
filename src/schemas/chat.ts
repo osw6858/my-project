@@ -5,7 +5,7 @@ export type MessageType = (typeof MessageTypeEnum)[number]
 
 export const MessageSchema = z.object({
   type: z.enum(MessageTypeEnum),
-  content: z.string().optional(),
+  content: z.string(),
   introduce: z.string().optional(),
   url: z.string().optional(),
   tel: z.string().optional(),

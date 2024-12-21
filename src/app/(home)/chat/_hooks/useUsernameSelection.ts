@@ -4,7 +4,6 @@ import socket from '@/socket'
 export const useUsernameSelection = () => {
   const [usernameAlreadySelected, setUsernameAlreadySelected] =
     useState<boolean>(false)
-  const [error, setError] = useState<string>('')
 
   const onUsernameSelection = (username: string) => {
     setUsernameAlreadySelected(true)
@@ -16,9 +15,6 @@ export const useUsernameSelection = () => {
     const handleConnectError = (err: Error) => {
       if (err.message === 'invalid username') {
         setUsernameAlreadySelected(false)
-        setError('이미 사용 중인 사용자 이름입니다. 다른 이름을 선택해주세요.')
-      } else {
-        setError(err.message)
       }
     }
 
@@ -29,5 +25,5 @@ export const useUsernameSelection = () => {
     }
   }, [])
 
-  return { usernameAlreadySelected, onUsernameSelection, error }
+  return { usernameAlreadySelected, onUsernameSelection }
 }

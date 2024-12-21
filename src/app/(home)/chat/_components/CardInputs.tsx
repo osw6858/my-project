@@ -31,6 +31,7 @@ export default function CardInputs({
       {...htmlProps}
       className={cn(
         'flex flex-col gap-4 p-4 bg-white rounded shadow-md',
+        'md:gap-6 md:p-6 lg:max-w-lg lg:mx-auto',
         className,
       )}
     >

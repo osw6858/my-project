@@ -21,15 +21,22 @@ export default function Chat({
   }
 
   return (
-    <div className="flex">
-      <div
-        {...htmlProps}
+    <div
+      {...htmlProps}
+      className={cn(
+        'flex flex-col md:flex-row h-[calc(100vh-114px)] bg-gray-100',
+        className,
+      )}
+    >
+      <aside
         className={cn(
-          'w-32 md:w-64 bg-blue-900 text-white h-[calc(100vh-114px)] overflow-y-scroll',
-          className,
+          'flex-shrink-0 w-full md:w-64 bg-blue-900 text-white h-64 md:h-full overflow-y-auto',
+          'border-b border-blue-800 md:border-b-0 md:border-r',
         )}
       >
-        <h2 className="w-full text-xl font-bold p-3">온라인 유저</h2>
+        <h2 className="text-lg md:text-xl font-bold p-4 border-b border-blue-800">
+          온라인 유저
+        </h2>
         <ul>
           {users.map((user) => (
             <User
@@ -40,17 +47,19 @@ export default function Chat({
             />
           ))}
         </ul>
-      </div>
+      </aside>
 
-      {selectedUser ? (
-        <MessagePanel user={selectedUser} onInput={handleSendMessage} />
-      ) : (
-        <div className="flex-1 flex justify-center items-center w-full bg-gray-100">
-          <p className="font-bold text-gray-400 text-2xl">
-            대화하고 싶은 유저를 선택하세요.
-          </p>
-        </div>
-      )}
+      <div className="flex-1 flex flex-col">
+        {selectedUser ? (
+          <MessagePanel user={selectedUser} onInput={handleSendMessage} />
+        ) : (
+          <div className="flex-1 flex justify-center items-center bg-gray-100">
+            <p className="text-center font-bold text-gray-500 text-xl px-4">
+              대화하고 싶은 유저를 선택하세요.
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

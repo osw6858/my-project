@@ -21,19 +21,24 @@ export default function User({
       {...htmlProps}
       className={cn(
         'flex justify-between items-center p-4 cursor-pointer hover:bg-blue-800',
+        'sm:gap-4 md:gap-6',
         selected && 'bg-blue-700',
         className,
       )}
       onClick={onSelect}
     >
-      <span className="font-semibold flex items-center gap-2">
-        {user.username}
-        {user.self && <span className="text-sm text-gray-300">(본인)</span>}
-      </span>
-      <p className="flex items-center space-x-2">
-        {user.hasNewMessages && <MessageSquareDot />}
-        <span className={`w-3 h-3 rounded-full bg-green-500`} />
-      </p>
+      <div className="flex items-center gap-2 sm:gap-4">
+        <span className="font-semibold text-sm md:text-base flex items-center gap-2">
+          {user.username}
+          {user.self && <span className="text-xs text-gray-300">(본인)</span>}
+        </span>
+      </div>
+      <div className="flex items-center space-x-2">
+        {user.hasNewMessages && (
+          <MessageSquareDot className="w-4 h-4 md:w-5 md:h-5" />
+        )}
+        <span className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-green-500" />
+      </div>
     </li>
   )
 }

@@ -8,11 +8,11 @@ const port = 3000
 const app = next({ dev, hostname, port })
 const handler = app.getRequestHandler()
 
+
 app.prepare().then(() => {
   const httpServer = createServer(handler)
-  const io = new Server(httpServer, {
-    cors: { origin: '*' }
-  })
+  const io = new Server(httpServer)
+
 
   io.use((socket, next) => {
     const username = socket.handshake.auth.username
@@ -42,7 +42,7 @@ app.prepare().then(() => {
 
     // 개인 메시지 처리
     socket.on('private message', (message) => {
-      const { content, type, introduce, url, tel, to } = message // 메시지 필드 추출
+      const { content, type, introduce, url, tel, to } = message
 
       // 수신자에게 메시지 전송
       socket.to(to).emit('private message', {
@@ -59,6 +59,7 @@ app.prepare().then(() => {
       socket.broadcast.emit('user disconnected', socket.id)
     })
   })
+
 
   httpServer
     .once('error', (err) => {

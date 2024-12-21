@@ -104,7 +104,7 @@ export default function useChat() {
         (prevUsers) => prevUsers.filter((user) => user.userID !== id), // 목록에서 제거
       )
 
-      alert('상대방이 채팅방을 나갔습니다.')
+      // alert('상대방이 채팅방을 나갔습니다.')
     }
 
     const handleConnect = () => {

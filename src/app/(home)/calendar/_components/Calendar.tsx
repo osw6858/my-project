@@ -94,7 +94,7 @@ export default function Calendar({
                 >
                   <span>{date.date()}</span>
                   <div className="absolute top-8 left-0 right-0 flex flex-col items-center space-y-1">
-                    {events.map((event) => {
+                    {events.slice(0, 2).map((event) => {
                       const style = eventColorMap.get(event.id)
                       return (
                         <div
@@ -111,6 +111,12 @@ export default function Calendar({
                         </div>
                       )
                     })}
+
+                    {events.length > 3 && (
+                      <div className="text-xs text-gray-500 px-1 w-full h-4">
+                        <span>+ {events.length - 2}개</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               )

@@ -7,6 +7,7 @@ export const useMessageForm = () => {
   const [introduce, setIntroduce] = useState<string>('') // 소개
   const [url, setUrl] = useState<string>('') // 카드 URL 필드
   const [tel, setTel] = useState<string>('') // 카드 전화번호 필드
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
 
   return {
     messageType,
@@ -19,5 +20,7 @@ export const useMessageForm = () => {
     setUrl,
     tel,
     setTel,
+    selectedFile,
+    setSelectedFile,
   }
 }

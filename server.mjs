@@ -40,17 +40,16 @@ app.prepare().then(() => {
       username: socket.username
     })
 
-    // 개인 메시지 처리
     socket.on('private message', (message) => {
-      const { content, type, introduce, url, tel, to } = message
-
-      // 수신자에게 메시지 전송
+      const { content, type, introduce, url, tel, to, file } = message
+      
       socket.to(to).emit('private message', {
         content,
         introduce,
         type,
         url,
         tel,
+        file,
         from: socket.id
       })
     })

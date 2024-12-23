@@ -1,12 +1,12 @@
-import React, { FormEvent, useMemo, useRef } from 'react'
+import React, { FormEvent, useRef } from 'react'
 import { Message, MessageType, UserType } from '@/schemas/chat'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
-import Messages from '@/app/(home)/chat/_components/Messages'
 import { useMessageForm } from '@/app/(home)/chat/_hooks/useMessageForm'
 import { useAutoScroll } from '@/app/(home)/chat/_hooks/useAutoScroll'
 import CardInputs from '@/app/(home)/chat/_components/CardInputs'
 import Select from '@/components/ui/Select'
+import VirtualMessageList from '@/app/(home)/chat/_components/VirtualMessageList'
 
 interface MessagePanelProps {
   user: UserType
@@ -81,22 +81,12 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
     setMessageType('file')
   }
 
-  const memoizedMessages = useMemo(
-    () => user,
-    [user.messages.length, user.userID],
-  )
-
   return (
     <div className="flex-1 flex flex-col max-h-[calc(100vh-114px)]">
-      <div className="flex-1 overflow-y-auto p-4 sm:p-6 shadow-md">
-        <div className="flex flex-col space-y-4">
-          {memoizedMessages.messages.map((msg, index) => (
-            <Messages key={`${index}${msg.content}`} message={msg} />
-          ))}
-        </div>
-        <div ref={messagesEndRef} />
-      </div>
-
+      <VirtualMessageList
+        messages={user.messages}
+        messagesEndRef={messagesEndRef}
+      />
       <form
         onSubmit={handleSend}
         className="bg-blue-100 p-4 sm:p-6 shadow-lg border-t border-blue-300"

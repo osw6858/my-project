@@ -82,15 +82,12 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
   }
 
   return (
-    <div className="flex-1 flex flex-col max-h-[calc(100vh-114px)]">
+    <div className="flex-1 flex flex-col max-h-[calc(100vh-113px)]">
       <VirtualMessageList
         messages={user.messages}
         messagesEndRef={messagesEndRef}
       />
-      <form
-        onSubmit={handleSend}
-        className="bg-blue-100 p-4 sm:p-6 shadow-lg border-t border-blue-300"
-      >
+      <form onSubmit={handleSend} className="bg-blue-100 p-4 sm:p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
           <Select
             value={messageType}

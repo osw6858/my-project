@@ -25,14 +25,14 @@ export default function Chat({
     <div
       {...htmlProps}
       className={cn(
-        'flex flex-col md:flex-row h-[calc(100vh-114px)] bg-blue-50',
+        'flex flex-col md:flex-row h-[calc(100vh-113px)] bg-blue-50',
         className,
       )}
     >
       <aside
         className={cn(
-          'flex-shrink-0 w-full md:w-64 bg-blue-900 text-white h-56 md:h-full overflow-y-auto',
-          'border-b border-blue-800 md:border-b-0 md:border-r',
+          'flex-shrink-0 w-full md:w-64 bg-blue-900 text-white h-52 md:h-full overflow-y-auto',
+          'border-b border-blue-800 md:static absolute z-30 w-fit',
         )}
       >
         <h2 className="text-lg md:text-xl font-bold p-4 border-b border-blue-800">

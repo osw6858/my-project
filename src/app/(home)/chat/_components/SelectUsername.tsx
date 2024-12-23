@@ -24,8 +24,13 @@ export default function SelectUsername({
 
   return (
     <div className="flex items-center justify-center h-[calc(100vh-114px)]">
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
-        <h2 className="text-xl font-bold mb-4">닉네임 설정</h2>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg border border-blue-200"
+      >
+        <h2 className="text-3xl font-bold text-blue-500 mb-6 text-center">
+          닉네임 설정
+        </h2>
         <Input
           type="text"
           value={username}
@@ -33,11 +38,13 @@ export default function SelectUsername({
             setUsername(e.target.value)
             setError('')
           }}
-          placeholder="닉네임 입력"
-          className="w-full p-2 border border-gray-300 rounded mb-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          placeholder="닉네임을 입력하세요"
+          className="w-full p-4 text-gray-700 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
-        <Button className="w-full" type="submit">
+        {error && (
+          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
+        )}
+        <Button className="w-full h-full py-3" type="submit">
           채팅 참가
         </Button>
       </form>

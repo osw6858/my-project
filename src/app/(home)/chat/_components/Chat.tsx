@@ -25,7 +25,7 @@ export default function Chat({
     <div
       {...htmlProps}
       className={cn(
-        'flex flex-col md:flex-row h-[calc(100vh-114px)] bg-gray-100',
+        'flex flex-col md:flex-row h-[calc(100vh-114px)] bg-blue-50',
         className,
       )}
     >
@@ -54,7 +54,7 @@ export default function Chat({
         {selectedUser ? (
           <MessagePanel user={selectedUser} onInput={handleSendMessage} />
         ) : (
-          <div className="flex-1 flex justify-center items-center bg-gray-100">
+          <div className="flex-1 flex justify-center items-center">
             <p className="text-center font-bold text-gray-500 text-xl px-4">
               대화하고 싶은 유저를 선택하세요.
             </p>

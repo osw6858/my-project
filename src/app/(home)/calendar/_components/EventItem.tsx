@@ -27,7 +27,12 @@ export default function EventItem({
       className="border border-gray-200 rounded-lg p-4 shadow-sm bg-white hover:shadow-md transition-shadow duration-300"
     >
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-800">{event?.title}</h3>
+        <div className="flex items-center gap-1">
+          <h3 className="text-lg font-semibold text-gray-800">
+            {event?.title}
+          </h3>
+          <span className="text-sm text-gray-500">({event?.registrant})</span>
+        </div>
         <div className="text-sm text-gray-500">
           <Button onClick={() => setIsUpdate(!isUpdate)} variant={'ghost'}>
             {isUpdate ? '취소' : '수정'}

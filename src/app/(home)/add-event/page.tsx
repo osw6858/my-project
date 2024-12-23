@@ -14,6 +14,8 @@ export default function AddEventPage() {
   const {
     title,
     setTitle,
+    registrant,
+    setRegistrant,
     content,
     setContent,
     startDate,
@@ -27,7 +29,7 @@ export default function AddEventPage() {
 
   const onEventSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const event = { title, content, startDate, endDate }
+    const event = { title, content, registrant, startDate, endDate }
 
     const { result, message } = validateEvent(event)
 
@@ -36,7 +38,7 @@ export default function AddEventPage() {
       return
     }
 
-    mutate({ title, content, startDate, endDate })
+    mutate({ title, content, registrant, startDate, endDate })
     router.back()
   }
 
@@ -56,12 +58,20 @@ export default function AddEventPage() {
           />
         </div>
         <div className="flex flex-col gap-3">
-          <Input
-            type="text"
-            placeholder="이벤트 제목"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+          <div className="flex gap-3">
+            <Input
+              type="text"
+              placeholder="이벤트 제목"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <Input
+              type="text"
+              placeholder="등록인"
+              value={registrant}
+              onChange={(e) => setRegistrant(e.target.value)}
+            />
+          </div>
           <TextArea
             placeholder="이벤트 내용"
             value={content}

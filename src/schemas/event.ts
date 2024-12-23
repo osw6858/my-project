@@ -3,6 +3,7 @@ import { z } from 'zod'
 export const eventSchema = z.object({
   id: z.string(),
   title: z.string(),
+  registrant: z.string(),
   content: z.string().optional(),
   startDate: z.string().refine((date) => !isNaN(Date.parse(date)), {
     message: 'Invalid start date format',

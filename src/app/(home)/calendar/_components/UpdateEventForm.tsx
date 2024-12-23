@@ -19,6 +19,8 @@ export default function UpdateEventForm({
   const {
     title,
     setTitle,
+    registrant,
+    setRegistrant,
     content,
     setContent,
     startDate,
@@ -32,7 +34,7 @@ export default function UpdateEventForm({
   const handleUpdateEvent = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const submitEvent = { title, content, startDate, endDate }
+    const submitEvent = { title, registrant, content, startDate, endDate }
     const { result, message } = validateEvent(submitEvent)
 
     if (!result) {
@@ -47,7 +49,7 @@ export default function UpdateEventForm({
 
     mutate({
       id: event.id,
-      updatedEvent: { title, content, startDate, endDate },
+      updatedEvent: { title, registrant, content, startDate, endDate },
     })
     setIsUpdate(false)
   }
@@ -67,7 +69,13 @@ export default function UpdateEventForm({
         />
       </div>
 
-      <Input onChange={(e) => setTitle(e.target.value)} value={title} />
+      <div className="flex gap-2">
+        <Input onChange={(e) => setTitle(e.target.value)} value={title} />
+        <Input
+          onChange={(e) => setRegistrant(e.target.value)}
+          value={registrant}
+        />
+      </div>
       <TextArea
         onChange={(e) => setContent(e.target.value)}
         defaultValue={content}

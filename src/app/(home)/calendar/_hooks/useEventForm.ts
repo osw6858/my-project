@@ -6,6 +6,7 @@ export const useEventForm = (event?: Event) => {
   const date = useDateStore.use.date()
 
   const [title, setTitle] = useState<string>(event?.title || '')
+  const [registrant, setRegistrant] = useState<string>(event?.registrant || '')
   const [content, setContent] = useState<string>(event?.content || '')
   const [startDate, setStartDate] = useState<string>(event?.startDate || '')
   const [endDate, setEndDate] = useState<string>(event?.endDate || '')
@@ -20,6 +21,8 @@ export const useEventForm = (event?: Event) => {
   return {
     title,
     setTitle,
+    registrant,
+    setRegistrant,
     content,
     setContent,
     startDate,

@@ -112,7 +112,7 @@ export default function Calendar({
                       )
                     })}
 
-                    {events.length > 3 && (
+                    {events.length > 2 && (
                       <div className="text-xs text-gray-500 px-1 w-full h-4">
                         <span>+ {events.length - 2}개</span>
                       </div>

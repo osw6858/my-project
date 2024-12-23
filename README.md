@@ -42,6 +42,8 @@ pnpm mock
 
 - **@tanstack/react-query**: API 응답 데이터의 캐싱 처리와 서버 데이터 실시간 동기화 상태를 효율적으로 관리하기 위해 사용
 
+- **@tanstack/react-virtual**: 채팅 리스트의 가상화를 통해 DOM 노드 수를 줄이고 성능을 최적화하기 위해 사용
+
 - **axios**: axios 인스턴스를 생성하여 공통 base URL을 설정하고 API 요청을 관리하기 위해 사용
 
 - **dayjs**: 캘린더의 날짜 포맷팅, 시간대 변환, 날짜 비교 및 계산 기능을 사용하기 위해 사용

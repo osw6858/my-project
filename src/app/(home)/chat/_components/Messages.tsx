@@ -9,7 +9,6 @@ interface MessageProps {
 }
 
 const Messages = React.memo(({ message }: MessageProps) => {
-  console.log('리렌더링')
   if (message.type === 'card') {
     return (
       <CardMessage

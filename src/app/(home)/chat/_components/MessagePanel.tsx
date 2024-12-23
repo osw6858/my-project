@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react'
+import React, { FormEvent, useMemo, useRef } from 'react'
 import { Message, MessageType, UserType } from '@/schemas/chat'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
@@ -30,6 +30,7 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
   } = useMessageForm()
 
   const messagesEndRef = useAutoScroll(user.messages)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const handleSend = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -63,6 +64,10 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
             fileData: base64Data,
           },
         })
+
+        if (fileInputRef.current) {
+          fileInputRef.current.value = ''
+        }
         setSelectedFile(null)
       }
       reader.readAsDataURL(selectedFile)
@@ -76,11 +81,16 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
     setMessageType('file')
   }
 
+  const memoizedMessages = useMemo(
+    () => user,
+    [user.messages.length, user.userID],
+  )
+
   return (
-    <div className="flex-1 flex flex-col bg-blue-50 max-h-[calc(100vh-114px)]">
+    <div className="flex-1 flex flex-col max-h-[calc(100vh-114px)]">
       <div className="flex-1 overflow-y-auto p-4 sm:p-6 shadow-md">
         <div className="flex flex-col space-y-4">
-          {user.messages.map((msg, index) => (
+          {memoizedMessages.messages.map((msg, index) => (
             <Messages key={`${index}${msg.content}`} message={msg} />
           ))}
         </div>
@@ -108,7 +118,7 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="텍스트 메시지 입력..."
-              className="flex-1 p-3 rounded border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="flex-1 p-3"
             />
           )}
 
@@ -130,6 +140,7 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
 
           {messageType === 'file' && (
             <Input
+              ref={fileInputRef}
               type="file"
               onChange={handleFileChange}
               className="bg-transparent border-0 block w-full text-sm text-gray-500 cursor-pointer
@@ -141,10 +152,7 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
             />
           )}
 
-          <Button
-            type="submit"
-            className="w-full md:w-auto px-6 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          >
+          <Button type="submit" className="w-full md:w-auto px-6 py-2 shadow">
             전송
           </Button>
         </div>

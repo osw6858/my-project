@@ -25,14 +25,14 @@ export default function Chat({
     <div
       {...htmlProps}
       className={cn(
-        'flex flex-col md:flex-row h-[calc(100vh-113px)] bg-blue-50',
+        'relative flex flex-col md:flex-row h-[calc(100vh-113px)] bg-blue-50',
         className,
       )}
     >
       <aside
         className={cn(
-          'flex-shrink-0 w-full md:w-64 bg-blue-900 text-white h-52 md:h-full overflow-y-auto',
-          'border-b border-blue-800 md:static absolute z-30 w-fit',
+          'absolute md:static top-0 left-0 w-full md:w-64 bg-blue-900 text-white z-30 overflow-y-auto',
+          'h-48 md:h-full',
         )}
       >
         <h2 className="text-lg md:text-xl font-bold p-4 border-b border-blue-800">
@@ -50,7 +50,7 @@ export default function Chat({
         </ul>
       </aside>
 
-      <div className="flex-1 flex flex-col">
+      <div className="mt-44 md:mt-0 flex-1 flex flex-col">
         {selectedUser ? (
           <MessagePanel user={selectedUser} onInput={handleSendMessage} />
         ) : (

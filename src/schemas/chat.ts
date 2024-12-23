@@ -20,8 +20,10 @@ export const MessageSchema = z.object({
 })
 
 export const UserTypeSchema = z.object({
-  userID: z.string(),
-  username: z.string(),
+  userID: z.string().nonempty({ message: 'userID는 빈문자열일 수 없습니다.' }),
+  username: z
+    .string()
+    .nonempty({ message: 'username은 빈문자열일 수 없습니다.' }),
   self: z.boolean(),
   connected: z.boolean(),
   messages: z.array(MessageSchema),

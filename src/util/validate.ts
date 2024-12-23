@@ -2,10 +2,14 @@ import { EventWithoutId } from '@/schemas/event'
 import dayjs from 'dayjs'
 
 export const validateEvent = (event: EventWithoutId) => {
-  const { title, startDate, endDate } = event
+  const { title, registrant, startDate, endDate } = event
 
   if (!title || title.trim() === '') {
     return { result: false, message: '제목은 필수 입니다.' }
+  }
+
+  if (!registrant || registrant.trim() === '') {
+    return { result: false, message: '등록인 입력은 필수 입니다.' }
   }
 
   const start = dayjs(startDate)

@@ -9,7 +9,7 @@ export default function Header() {
         </Link>
         <nav className="space-x-5 text-sm">
           <Link href="/calendar">캘린더</Link>
-          <Link href="/">채팅</Link>
+          <Link href="/chat">채팅</Link>
         </nav>
       </div>
     </header>

@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My-project
 
-## Getting Started
+## 실행 방법
 
-First, run the development server:
+### 1. Docker 사용 시
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Docker 컨테이너 실행
+docker-compose up
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Docker 미사용 시
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### 필수 요구사항
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js (v20.12.2)
+- pnpm (v9.7.1)
 
-## Learn More
+#### 설치 및 실행 단계
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# 1. pnpm 설치
+npm install -g pnpm
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 2. 프로젝트 의존성 설치
+pnpm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 3. 개발 서버 실행
+pnpm dev
 
-## Deploy on Vercel
+# 4. 별도의 터미널에서 MSW Mock 서버 실행 (포트: 9090)
+pnpm mock
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 개발 환경 접속
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 프론트엔드 서버: http://localhost:3000
+
+## 기술 스택 및 라이브러리
+
+### 주요 라이브러리
+
+- **@tanstack/react-query**: API 응답 데이터의 캐싱 처리와 서버 데이터 실시간 동기화 상태를 효율적으로 관리하기 위해 사용
+
+- **axios**: axios 인스턴스를 생성하여 공통 base URL을 설정하고 API 요청을 관리하기 위해 사용
+
+- **dayjs**: 캘린더의 날짜 포맷팅, 시간대 변환, 날짜 비교 및 계산 기능을 사용하기 위해 사용
+
+- **socket.io** / **socket.io-client**: 채팅 구현시 실시간 양방향 통신을 구현하기 위해 사용 실시간 알림 처리, 서버와의 실시간 데이터 동기화, 연결 상태 모니터링 기능을 활용
+
+- **zod**: TypeScript 기반의 데이터 유효성 검사 라이브러리 API 요청/응답 데이터의 타입 검증, 폼 입력값 유효성 검사, 런타임에서의 타입 안정성을 확보하기 위해 사용
+
+- **zustand**: zustand persist 기능을 활용하여, 캘린더에서 사용자가 선택한 날짜를 SessionStorage에 저장하고 페이지 새로고침이나 페이지 이동 후에도 선택 상태를 유지하기 위해 사용
+
+### UI 관련 라이브러리
+
+- **@radix-ui/react-slot**: 컴포넌트 합성 패턴을 구현하고 UI 컴포넌트의 재사용성을 향상시키기 위해 사용
+
+- **class-variance-authority**: 조건부 스타일링 로직을 관리하고 컴포넌트의 다양한 변형(variants)을 처리하기 위해 사용
+
+- **clsx** & **tailwind-merge**: 동적 클래스 결합과 Tailwind 클래스 충돌 해결을 위한 조건부 스타일링을 처리하기 위해 사용
+
+- **lucide-react**: 일관된 디자인 시스템을 위한 아이콘을 제공하고 SVG 아이콘의 크기와 색상을 동적으로 제어하기 위해 사용
+
+### 개발 도구 및 테스트
+
+- **msw**: API 모킹을 통해 프론트엔드 개발 환경을 구축하고 백엔드 API 완성 전에도 프론트엔드 개발이 가능하도록 하기 위해 사용
+
+- **express**: Mock 서버 구현을 위한 API 엔드포인트를 정의하고 개발 환경에서의 API 테스트 환경을 제공하기 위해 사용
+
+- **cors**: 개발 환경에서의 Cross-Origin 요청 처리와 도메인 간 통신을 허용하기 위해 사용
+
+- **uuid**: 목업 데이터의 고유 ID 생성과 임시 데이터 식별을 위한 키를 생성하기 위해 사용
+
+- **@mswjs/http-middleware**: MSW의 모의 API 요청/응답을 처리하고 Express 서버와 MSW를 통합하기 위해 사용
+
+## 참고사항
+
+- 해당 프로젝트는 Next.js 15.1.1버전으로 구축하였습니다.

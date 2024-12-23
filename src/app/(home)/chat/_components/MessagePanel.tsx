@@ -6,7 +6,7 @@ import Messages from '@/app/(home)/chat/_components/Messages'
 import { useMessageForm } from '@/app/(home)/chat/_hooks/useMessageForm'
 import { useAutoScroll } from '@/app/(home)/chat/_hooks/useAutoScroll'
 import CardInputs from '@/app/(home)/chat/_components/CardInputs'
-import Select from '@/app/(home)/chat/_components/Select'
+import Select from '@/components/ui/Select'
 
 interface MessagePanelProps {
   user: UserType
@@ -25,6 +25,8 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
     setUrl,
     tel,
     setTel,
+    selectedFile,
+    setSelectedFile,
   } = useMessageForm()
 
   const messagesEndRef = useAutoScroll(user.messages)
@@ -32,15 +34,13 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
   const handleSend = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (content.trim() === '') return
-
-    if (messageType === 'text') {
+    if (messageType === 'text' && content.trim() !== '') {
       onInput({ type: 'text', content })
       setContent('')
       return
     }
 
-    if (messageType === 'card') {
+    if (messageType === 'card' && content.trim() !== '') {
       onInput({ type: 'card', content, introduce, url, tel })
       setContent('')
       setUrl('')
@@ -48,6 +48,32 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
       setIntroduce('')
       return
     }
+
+    if (messageType === 'file' && selectedFile) {
+      const reader = new FileReader()
+
+      reader.onload = () => {
+        const base64Data = reader.result?.toString().split(',')[1] || ''
+        onInput({
+          type: 'file',
+          content: '',
+          file: {
+            fileName: selectedFile.name,
+            fileType: selectedFile.type,
+            fileData: base64Data,
+          },
+        })
+        setSelectedFile(null)
+      }
+      reader.readAsDataURL(selectedFile)
+    }
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null
+
+    setSelectedFile(file)
+    setMessageType('file')
   }
 
   return (
@@ -73,6 +99,7 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
           >
             <option value="text">텍스트 메시지</option>
             <option value="card">카드 메시지</option>
+            <option value="file">파일 메시지</option>
           </Select>
 
           {messageType === 'text' && (
@@ -99,6 +126,19 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
                 className="bg-white rounded-lg"
               />
             </div>
+          )}
+
+          {messageType === 'file' && (
+            <Input
+              type="file"
+              onChange={handleFileChange}
+              className="bg-transparent border-0 block w-full text-sm text-gray-500 cursor-pointer
+              file:mr-4 file:py-1 file:px-4 file:cursor-pointer
+              file:rounded-full file:border-0
+              file:text-sm file:font-semibold
+              file:bg-blue-50 file:text-blue-700
+              hover:file:bg-blue-100"
+            />
           )}
 
           <Button

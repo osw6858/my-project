@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import socket from '@/socket'
 import {
+  File,
   IncomingPrivateMessage,
   Message,
   MessageType,
@@ -11,6 +12,7 @@ interface AdditionalDataType {
   url?: string
   tel?: string
   introduce?: string
+  file?: File
 }
 
 export default function useChat() {
@@ -130,11 +132,13 @@ export default function useChat() {
       from,
       url,
       tel,
+      file,
     }: IncomingPrivateMessage & {
       type: MessageType
       introduce?: string
       url?: string
       tel?: string
+      file?: File
     }) => {
       setUsers((prevUsers) =>
         prevUsers.map((user) => {
@@ -147,6 +151,7 @@ export default function useChat() {
                 introduce,
                 url,
                 tel,
+                file,
                 fromSelf: false,
               },
             ]

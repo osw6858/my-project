@@ -1,0 +1,22 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+      - "9090:9090"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOSTNAME=0.0.0.0
+    networks:
+      - app-network
+    stdin_open: true
+    tty: true
+
+networks:
+  app-network:
+    driver: bridge

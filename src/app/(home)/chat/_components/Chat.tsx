@@ -17,6 +17,7 @@ export default function Chat({
       introduce: message.introduce,
       url: message.url,
       tel: message.tel,
+      file: message.file,
     })
   }
 
@@ -30,7 +31,7 @@ export default function Chat({
     >
       <aside
         className={cn(
-          'flex-shrink-0 w-full md:w-64 bg-blue-900 text-white h-64 md:h-full overflow-y-auto',
+          'flex-shrink-0 w-full md:w-64 bg-blue-900 text-white h-56 md:h-full overflow-y-auto',
           'border-b border-blue-800 md:border-b-0 md:border-r',
         )}
       >

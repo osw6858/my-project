@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react'
+import React, { forwardRef, InputHTMLAttributes } from 'react'
 import { cva, VariantProps } from 'class-variance-authority'
 import { Slot } from '@radix-ui/react-slot'
 import { cn } from '@/lib/cn'
@@ -33,18 +33,19 @@ export interface InputProps
   asChild?: boolean
 }
 
-export default function Input({
-  className,
-  variant,
-  inputSize,
-  asChild = false,
-  ...htmlProps
-}: InputProps) {
-  const Comp = asChild ? Slot : 'input'
-  return (
-    <Comp
-      className={cn(inputVariants({ variant, inputSize, className }))}
-      {...htmlProps}
-    />
-  )
-}
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ className, variant, inputSize, asChild = false, ...htmlProps }, ref) => {
+    const Comp = asChild ? Slot : 'input'
+    return (
+      <Comp
+        className={cn(inputVariants({ variant, inputSize, className }))}
+        ref={ref}
+        {...htmlProps}
+      />
+    )
+  },
+)
+
+Input.displayName = 'Input'
+
+export default Input

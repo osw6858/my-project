@@ -17,6 +17,15 @@ export default function CardMessage({
   tel,
   fromSelf,
 }: CardMessageProps) {
+  const getFullUrl = (url?: string) => {
+    if (!url) return
+
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      return url
+    }
+    return `https://${url}`
+  }
+
   return (
     <div
       className={cn(
@@ -59,7 +68,7 @@ export default function CardMessage({
       <div className="mt-4 space-y-2">
         {url && (
           <a
-            href={url}
+            href={getFullUrl(url)}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(

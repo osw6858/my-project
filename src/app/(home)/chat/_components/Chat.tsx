@@ -25,7 +25,7 @@ export default function Chat({
     <div
       {...htmlProps}
       className={cn(
-        'relative flex flex-col md:flex-row h-[calc(100vh-113px)] bg-blue-50',
+        'relative flex flex-col md:flex-row h-main bg-blue-50',
         className,
       )}
     >

@@ -23,7 +23,7 @@ export default function SelectUsername({
   }
 
   return (
-    <div className="flex items-center justify-center h-[calc(100vh-114px)]">
+    <div className="flex items-center justify-center h-main">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg border border-blue-200"

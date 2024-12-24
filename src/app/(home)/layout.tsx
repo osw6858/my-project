@@ -11,7 +11,7 @@ export default function HomeLayout({ children, modal }: LayoutProps) {
   return (
     <>
       <Header />
-      <main className="container mx-auto flex flex-col min-h-[calc(100vh-113px)]">
+      <main className="container mx-auto flex flex-col min-h-main">
         {children}
         {modal}
       </main>

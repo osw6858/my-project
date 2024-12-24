@@ -82,7 +82,7 @@ export default function MessagePanel({ user, onInput }: MessagePanelProps) {
   }
 
   return (
-    <div className="flex-1 flex flex-col max-h-[calc(100vh-113px)]">
+    <div className="flex-1 flex flex-col max-h-main">
       <VirtualMessageList
         messages={user.messages}
         messagesEndRef={messagesEndRef}
